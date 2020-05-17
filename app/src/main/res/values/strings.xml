@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">FaceRegonation</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="email">E-mail</string>
+    <string name="phone">Phone</string>
+    <string name="login">Login</string>
+    <string name="Create">Create</string>
+    <string name="create_new_account">Create new account?</string>
+    <string name="already_have_acc">Already have account? </string>
+    <string name="remember_me">Remember Me</string>
+    <string name="logout">Logout</string>
+    <string name="recognize_TAB">Recognize</string>
+    <string name="profile_TAB">Profile</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>

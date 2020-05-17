@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.example.faceregonatio.ui.activity.login.LoginViewModel" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:alpha="0.9"
+        android:background="@drawable/background2"
+        tools:context=".ui.activity.login.Login">
+
+
+        <ProgressBar
+            android:id="@+id/login_prog"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:visibility="@{viewModel.visibility ? View.VISIBLE : View.GONE}"/>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/login_parent"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:visibility="@{viewModel.visibility ? View.GONE : View.VISIBLE}">
+
+
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/g2"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent="0.56" />
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/email_login"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_start"
+                android:layout_marginEnd="@dimen/margin_end"
+                android:drawableRight="@drawable/user"
+                android:hint="@string/email"
+                android:inputType="text"
+                android:textColor="@color/white"
+                android:padding="@dimen/padding"
+                android:text="@={viewModel.email}"
+                android:textColorHint="@color/hint_color"
+                android:textSize="@dimen/font_title"
+                app:layout_constraintTop_toBottomOf="@+id/g2" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/g3"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent="0.67" />
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/pass_login"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_start"
+                android:layout_marginEnd="@dimen/margin_end"
+                android:drawableEnd="@drawable/pasword"
+                android:hint="@string/password"
+                android:inputType="textPassword"
+                android:padding="@dimen/padding"
+                android:text="@={viewModel.password}"
+                android:textColor="@color/white"
+                android:textColorHint="@color/hint_color"
+                android:textSize="@dimen/font_title"
+                app:layout_constraintTop_toBottomOf="@+id/g3"
+
+                />
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/g21"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent="0.75" />
+
+            <CheckBox
+                android:id="@+id/remember_me_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@+id/g21"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:text="@string/remember_me"
+                android:textStyle="bold"
+                android:theme="@style/MyCheckbox"
+                android:textSize="@dimen/_14sdp"
+                android:textColor="@color/hint_color"
+                android:checked="@={viewModel.checked}"/>
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/g11"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent="0.82" />
+            <Button
+                android:id="@+id/btn_login"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/blue"
+                android:onClick="@{()->viewModel.signIn()}"
+                android:padding="@dimen/padding"
+                android:text="@string/login"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="@dimen/font_title"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_marginEnd="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                app:layout_constraintTop_toBottomOf="@+id/g11"
+                tools:layout_editor_absoluteX="0dp" />
+
+            <TextView
+                android:id="@+id/create_new_account"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:onClick="@{()->viewModel.setSignUpIntent()}"
+                android:padding="@dimen/padding"
+                android:text="@string/create_new_account"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_14sdp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/btn_login" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
